@@ -1,28 +1,28 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    想要：{{ x }}
+    <hr />
+    <select multiple v-model="x">
+      <option v-for="item in array" :value="item.value" :key="item.value">{{
+        item.text
+      }}</option>
+    </select>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+  name: "App",
+  data() {
+    return {
+      array: [
+        { text: "抽烟", value: 1 },
+        { text: "喝酒", value: 2 },
+        { text: "烫头", value: 3 },
+      ],
+      x: [],
+    };
+  },
+  components: {},
+};
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
