@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     登录
-    <form>
+    <form @submit.prevent="onSubmit">
       <lable>
         <span>用户名</span>
         <input type="text" v-model="user.username" />
@@ -25,6 +25,11 @@ export default {
         password: "",
       },
     };
+  },
+  methods: {
+    onSubmit() {
+      console.log(this.user);
+    },
   },
   components: {},
 };
