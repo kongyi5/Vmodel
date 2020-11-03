@@ -1,6 +1,6 @@
 <template>
   <div class="red wrapper">
-    <input :value="value" @input="onInput" />
+    <input :value="value" @input="$emit('input', $event.target.value)" />
   </div>
 </template>
 
@@ -10,12 +10,6 @@ export default {
   props: {
     value: {
       type: String,
-    },
-  },
-  methods: {
-    onInput(e) {
-      const value = e.target.value;
-      this.$emit("input", value);
     },
   },
 };
