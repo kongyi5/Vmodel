@@ -1,14 +1,20 @@
 <template>
   <div id="app">
+    {{ user }}
+    <hr />
     登录
     <form @submit.prevent="onSubmit">
       <lable>
         <span>用户名</span>
-        <input type="text" v-model="user.username" />
+        <input
+          type="text"
+          :value="user.username"
+          @input="user.username = $event.target.value"
+        />
       </lable>
       <lable>
         <span>密码</span>
-        <input type="password" v-model="user.password" />
+        <MyInput :value="user.password" @input="user.password = $event" />
       </lable>
       <button>登录</button>
     </form>
@@ -16,6 +22,7 @@
 </template>
 
 <script>
+import MyInput from "./MyInput.vue";
 export default {
   name: "App",
   data() {
@@ -31,6 +38,8 @@ export default {
       console.log(this.user);
     },
   },
-  components: {},
+  components: {
+    MyInput,
+  },
 };
 </script>
